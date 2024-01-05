@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ item.title }} - Item Details
+{% endblock %}
+
+{% block content %}
+    <h1>{{ item.title }}</h1>
+    <p>Description: {{ item.description }}</p>
+    <!-- Add more item details -->
+    <p>Category: {{ item.category }}</p>
+    <p>Price: {{ item.price }}</p>
+    
+    <!-- Show item image if available -->
+    {% if item.image %}
+        <img src="{{ item.image.url }}" alt="{{ item.title }}">
+    {% endif %}
+
+    <!-- Seller Information -->
+    <p>Seller: {{ item.user.username }}</p>
+    <!-- Add other seller-related details if available -->
+    
+    <!-- Contact or Buy/Rent Options -->
+    <!-- Add buttons or links for buying/renting or contacting the seller -->
+
+    <!-- Add comments, reviews, or other item-related functionalities here -->
+{% endblock %}

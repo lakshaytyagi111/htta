@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Your Title Here{% endblock %}</title>
+    <!-- Add your CSS links, meta tags, etc. here -->
+</head>
+<body>
+    <!-- Navbar or Header Section -->
+    <header>
+        <nav>
+            <!-- Your navigation links, logo, etc. -->
+            <ul>
+                <li><a href="{% url 'profile' %}">Home</a></li>
+                <!-- Add more navigation links as needed -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Content Section -->
+    <main>
+        {% block content %}
+        <!-- This block will be overridden by specific templates -->
+        {% endblock %}
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <!-- Your footer content -->
+    </footer>
+
+    <!-- Add your JavaScript links, scripts, etc. here -->
+</body>
+</html>

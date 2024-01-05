@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Your Items
+{% endblock %}
+
+{% block content %}
+    <h1>Your Listed Items</h1>
+    
+    {% if user_items %}
+        <ul>
+            {% for item in user_items %}
+                <li>
+                    <h2>{{ item.title }}</h2>
+                    <p>Description: {{ item.description }}</p>
+                    <!-- Add more item details if needed -->
+                    <p>Category: {{ item.category }}</p>
+                    <p>Price: {{ item.price }}</p>
+                    <!-- Display item image if available -->
+                    {% if item.image %}
+                        <img src="{{ item.image.url }}" alt="{{ item.title }}">
+                    {% endif %}
+                    <!-- Link to edit or delete item -->
+                    <a href="{% url 'edit_item' item_id=item.id %}">Edit</a>
+                    <a href="{% url 'delete_item' item_id=item.id %}">Delete</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No items listed yet.</p>
+    {% endif %}
+{% endblock %}
